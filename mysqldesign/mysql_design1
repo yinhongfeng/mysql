@@ -1,0 +1,106 @@
+”“”
+    mysql数据库设计说明
+“”“
+
+
+    用户表：
+            User 
+        用户ID:User_id
+        用户名:User_name
+        用户密码:User_passwd
+	用户ID状态:User_stateID
+	用户性别:User_sex
+	用户年龄:User_age
+
+    用户状态表:
+	    Userstate
+	用户ID:Us_id
+	用户状态名字:Us_name
+
+    聊天记录表：
+            Messages
+        消息ID:M_ID
+        发送时间：M_Time
+	接收状态:M_status
+	发送方用户ID:M_FromUserID
+	接收方用户ID:M_ToUserID
+        消息内容:M_PostMessages
+        聊天日期:Chat_time
+
+    好友表：
+            Friends
+	主键ID:F_ID
+        本人ID：F_userID
+        好友ID：F_FriendID
+	备注名:F_Name
+	好友类型:F_FriendTypeID
+	所属分组ID:F_FriendGroupsID
+        
+    好友分组表:
+	    FriendGroups
+	分组ID:FG_ID
+	分组名称:FG_Name
+	用户ID:FG_UserID
+
+    好友类型表:
+	    FriendType
+	类型ID:FT_ID
+	类型名称:FT_Name
+    
+    用户群表:
+	    User_Groups
+	群ID:UG_ID
+	群名称:UG_Name
+	群创建时间:UG_CreateTime
+	群主ID:UG_AdminID
+	群图标:UG_ICon
+	群公告:UG_Notice
+	群简介:UG_Intro
+
+    群用户关联表:
+	    User_GroupsToUser
+	主键:UG_ID
+	用户ID:UG_UserID
+	群ID:UG_GroupID
+	发送时间:UG_CreateTime
+	群内用户昵称:UG_GroupNick
+
+    群消息内容表:
+	    User_GroupsMSGContent
+	群消息ID:GM_ID
+	消息内容:GM_Content
+	发送者ID:GM_FromID
+	发送者昵称:GM_FromName
+	发送时间:GM_CreateTime
+
+     群消息关联表:
+	    User_GroupsMSGTouser
+	主键:GM_ID
+	群消息ID:GM_GroupMessageID
+	接收者ID:GM_UserID
+	接收状态:GM_State
+	发送时间:GM_CreateTime
+
+     群内私聊消息关联表:
+	    User_GroupsMSGUserToUser
+	主键:GM_ID
+	消息内容:GM_MSGContent
+	发送者ID:GM_FromUserID
+	发送者昵称:GM_FromUserName
+	发送时间:GM_CreateTime
+	接收者ID:GM_ToUserID
+	接收状态:GM_State
+	所属群ID:GM_UserGroupID
+
+
+    聊天室:
+            rooms
+        编号id:
+        房间名room_name：
+        创建房间号用户id:
+
+    聊天室用户
+            room_user
+        编号id：
+        房间名room_name:
+        用户id：
